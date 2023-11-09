@@ -34,14 +34,14 @@ the user has to guess.
 /* The increaseScore method increases the user's score by 1
 every time they guess the combination correctly.
 */
-    public static void increaseScore() {
+    public void increaseScore() {
         score++;
     }
 
 /* The increaseLength method increases the combination's length
 by 1 every time they guess the combination correctly.
 */
-    public static void increaseLength() {
+    public void increaseLength() {
         length++;
     }
 }

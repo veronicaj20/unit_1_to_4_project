@@ -1,16 +1,6 @@
 /* The Combination class represents a lock the user has to open.
-The lock is represented by a combination.
 */
 public class Combination {
-    private static String combination;
-
-/* This is the constructor for the Combination class. This creates a new
-instance of the Combination given the parameters:
-@param length represents how long the combination is
-*/
-    public Combination(int length) {
-        combination = generateNumCombination(length);
-    }
 
 /* The generateNumCombination method creates a new combination that
 the user has to guess, but with numbers.
@@ -19,7 +9,7 @@ the user has to guess, but with numbers.
 combination. The program generates a random integer from 0-9 until
 it completes the length of the combination and concatenates them to secretCombo.
 */
-    public String generateNumCombination(int length) {
+    public static String generateNumCombination(int length) {
         String secretCombo = "";
         for (int i = 0; i < length; i++) {
             int randomInt = (int) (Math.random() * 10);
@@ -36,7 +26,7 @@ combination. The program generates a random letter from A-Z, all
 uppercase, until it completes the length of the combination and concatenates
 them to secretCombo.
 */
-    public String generateLetterCombination(int length) {
+    public static String generateLetterCombination(int length) {
         String secretCombo = "";
         for (int i = 0; i < length; i++) {
             char randomLetter = (char) ('A' + (int) (Math.random() * 26));
@@ -53,9 +43,9 @@ combination. The program chooses a random character from the string "chars"
 until it completes the length of the combination and concatenates them
 to secretCombo.
 */
-    public String generateMixedCombination(int length) {
+    public static String generateMixedCombination(int length) {
         String secretCombo = "";
-        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
         for (int i = 0; i < length; i++) {
             char randomChar = chars.charAt((int) (Math.random() * chars.length()));
             secretCombo += randomChar;
@@ -70,9 +60,9 @@ they lose the game.
 @returns returns a String in three properly formatted sentences that
 contains all the information about the game after it ends.
 */
-    public static String toString(int score) {
+    public static String toString(int score, int length) {
         String str = "Game over! You guessed the wrong combination.";
-        String str2 = "The length of the combinaton was " + combination.length() + ".";
+        String str2 = "The length of the combinaton was " + length + ".";
         String str3 = "Your final score was: " + score + ".";
         return str + '\n' + str2 + '\n' + str3;
     }

@@ -9,21 +9,56 @@ instance of the Combination given the parameters:
 @param length represents how long the combination is
 */
     public Combination(int length) {
-        combination = generateCombination(length);
+        combination = generateNumCombination(length);
     }
 
-/* The generateCombination method creates a new combination that
-the user has to guess.
+/* The generateNumCombination method creates a new combination that
+the user has to guess, but with numbers.
 @param length is an integer representing the length of the combination
 @return returns a String, secretCombo, that represents the newly generated
 combination. The program generates a random integer from 0-9 until
 it completes the length of the combination and concatenates them to secretCombo.
 */
-    public String generateCombination(int length) {
+    public String generateNumCombination(int length) {
         String secretCombo = "";
         for (int i = 0; i < length; i++) {
-            int random = (int) (Math.random() * 10);
-            secretCombo += random;
+            int randomInt = (int) (Math.random() * 10);
+            secretCombo += randomInt;
+        }
+        return secretCombo;
+    }
+
+/* The generateLetterCombination method creates a new combination that the user
+has to guess, but with uppercase letters.
+@param length is an integer representing the length of the combination
+@return returns a String, secretCombo, that represents the newly generated
+combination. The program generates a random letter from A-Z, all
+uppercase, until it completes the length of the combination and concatenates
+them to secretCombo.
+*/
+    public String generateLetterCombination(int length) {
+        String secretCombo = "";
+        for (int i = 0; i < length; i++) {
+            char randomLetter = (char) ('A' + (int) (Math.random() * 26));
+            secretCombo += randomLetter;
+        }
+        return secretCombo;
+    }
+
+/* The generateMixedCombination method creates a new combination that the
+user has to guess, mixed with both uppercase letters and numbers.
+@param length is an integer representing the length of the combination
+@return returns a String, secretCombo, that represents the newly generated
+combination. The program chooses a random character from the string "chars"
+until it completes the length of the combination and concatenates them
+to secretCombo.
+*/
+    public String generateMixedCombination(int length) {
+        String secretCombo = "";
+        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        for (int i = 0; i < length; i++) {
+            char randomChar = chars.charAt((int) (Math.random() * chars.length()));
+            secretCombo += randomChar;
         }
         return secretCombo;
     }

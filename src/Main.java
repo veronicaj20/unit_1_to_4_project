@@ -5,13 +5,26 @@ public class Main {
         Scanner s = new Scanner(System.in);
         int score = 0;
         int length = 2;
+        boolean gameStart = false;
         boolean gameOver = false;
 
         System.out.println("Welcome to the Combination Game! Guess the combination correctly to unlock the lock and keep playing.");
+        // starts the game and the timer
+        while (!gameStart) {
+            System.out.print("Enter 'start' to start: ");
+            String userStart = s.next();
+            if (userStart.equalsIgnoreCase("start")) {
+                gameStart = true;
+                System.out.println();
+            } else {
+                System.out.println("Sorry! That's not a valid command. Please enter 'start'.");
+            }
+        }
+
         while (!gameOver) {
             Combination lock = new Combination(length);
             Values values = new Values(score, length);
-            String secretCombination = lock.generateCombination(length); // generates a new combination
+            String secretCombination = lock.generateNumCombination(length); // generates a new combination
 
             System.out.println("Level " + (length - 1) + ": A random combination has been generated.");
             System.out.println("The combination is: " + secretCombination);

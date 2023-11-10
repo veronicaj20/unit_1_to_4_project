@@ -2,8 +2,8 @@
 The Values are represented by the user's score and the length of the combination.
 */
 public class Values {
-    private static int score;
-    private static int length;
+    private int score;
+    private int length;
 
 /* This is the constructor for the Values class. This creates a new
 instance of the Values given the parameters:

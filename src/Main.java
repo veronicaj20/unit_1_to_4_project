@@ -25,7 +25,6 @@ public class Main {
 
         // creates the objects and initializes the variables to an empty string
         Values values = new Values(score, length);
-        String secretCombination = "";
         String difficulty = "";
 
         // game loop
@@ -43,18 +42,11 @@ public class Main {
                 }
             }
 
-            // generate combination based on difficulty
-            if (difficulty.equalsIgnoreCase("numbers")) {
-                secretCombination = Combination.generateNumCombination(length);
-            } else if (difficulty.equalsIgnoreCase("letters")) {
-                secretCombination = Combination.generateLetterCombination(length);
-            } else if (difficulty.equalsIgnoreCase("mixed")) {
-                secretCombination = Combination.generateMixedCombination(length);
-            }
+            String secretCombination = Combination.chooseCombination(difficulty, length);
 
             // actual game starts
             System.out.println("Level " + (length - 1) + ": A random combination has been generated.");
-            System.out.println("The combination is: " + secretCombination);
+            System.out.println("The combination is: " +  secretCombination);
             Thread.sleep(2000); // waits 2s before the user has to guess
             for (int i = 0; i < 50; i++) {
                 System.out.println(); // prints 50 lines so the user can't see the combination
@@ -76,6 +68,7 @@ public class Main {
             score = values.getScore(); // keeps track of the score and length throughout the game
             length = values.getLength();
         }
+
     }
 }
 

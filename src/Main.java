@@ -9,7 +9,7 @@ public class Main {
         boolean difficultyChosen = false;
 
 
-        System.out.println("Welcome to the Combination Game! Guess the combination correctly to unlock the lock and keep playing.");
+        System.out.println("Welcome to the Combination Game!\nA combination will be shown on the screen for 2 seconds. You have to type it exactly how you saw it, or lose!");
         // starts the game and the timer
         while (!gameStart) {
             System.out.print("Enter 'start' to start: ");
@@ -61,6 +61,7 @@ public class Main {
                 values.increaseLength();
             } else {
                 System.out.println(Combination.toString(score, length)); // the user's final stats are printed when they lose
+                System.out.println("The combination you were supposed to guess was: " + secretCombination);
                 gameOver = true;
             }
 

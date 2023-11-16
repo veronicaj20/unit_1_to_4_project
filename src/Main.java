@@ -59,6 +59,7 @@ public class Main {
                 System.out.println("Combination lock unlocked! You've entered the correct combination.");
                 values.increaseScore(); // increases the score and length by 1 if the user guesses correctly
                 values.increaseLength();
+                Thread.sleep(1500);
             } else {
                 System.out.println(Combination.toString(score, length)); // the user's final stats are printed when they lose
                 System.out.println("The combination you were supposed to guess was: " + secretCombination);
